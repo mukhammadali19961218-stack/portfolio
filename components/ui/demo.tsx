@@ -1,11 +1,11 @@
 import { AnimatedNavigationTabs } from "@/components/ui/animated-navigation-tabs";
 
 const ITEMS = [
-  { id: 1, tile: "Overview" },
-  { id: 2, tile: "Activity" },
-  { id: 3, tile: "Domains" },
-  { id: 4, tile: "AI" },
-  { id: 5, tile: "Settings" },
+  { id: 1, title: "Overview" },
+  { id: 2, title: "Activity" },
+  { id: 3, title: "Domains" },
+  { id: 4, title: "AI" },
+  { id: 5, title: "Settings" },
 ];
 
 const AnimatedNavigationTabsDemo = () => (

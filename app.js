@@ -37,7 +37,7 @@
         loadedCount++;
         const percent = Math.min(100, Math.floor((loadedCount / FRAME_COUNT) * 100));
 
-        if (loaderText) loaderText.textContent = `Loading frames... ${percent}%`;
+        if (loaderText) loaderText.textContent = `Sahifa yuklanmoqda... ${percent}%`;
         if (progressFill) progressFill.style.width = `${percent}%`;
 
         if (i === 1 && !isAppInitialized) {
@@ -277,27 +277,218 @@
     requestAnimationFrame(animate);
   }
 
-  function setupLightboxModal() {
+  const TRANSLATIONS = {
+    uz: {
+      nav_home: "Bosh sahifa",
+      nav_about: "Men haqimda",
+      nav_projects: "Loyihalarim",
+      nav_contact: "Bog'lanish",
+      hero_greet: "Salom, Mening ismim",
+      hero_name: "Namazov<br>Muhammad",
+      hero_role: "AI mutaxassisi",
+      hero_statement: "Ajoyib dizayn o‘zini namoyon qilmaydi — u shunchaki mukammal his etiladi.",
+      hero_description: "G‘oyadan vizual identifikatsiyagacha — insonlar bilan bog‘lanadigan, taassurot qoldiradigan va brendni natijaga aylantiradigan raqamli tajribalar yarataman",
+      service_1: "Brend Strategiyasi",
+      service_2: "Brend Identifikasiya Dizayni",
+      service_3: "Qadoqlash Dizayni",
+      service_4: "Kreativ Yo‘nalish",
+      tools_label: "Men ishlatadigan vositalar",
+      about_tag: "Men haqimda",
+      about_title: "G‘oyalarni AI orqali<br>vizual tajribaga<br>aylantiraman",
+      about_exp1: "⚡ 1 yillik AI Video & Image Gen",
+      about_exp2: "🎨 6 oylik AI Web Design",
+      about_role: "AI Creative Specialist & AI Web Designer",
+      about_desc: "Men — <strong>AI Creative Specialist</strong> va <strong>AI Web Designer</strong>man. 1 yillik AI video va image generation, hamda 6 oylik AI-powered web design tajribasiga egaman.",
+      about_subdesc: "Sun’iy intellekt orqali kreativlik va zamonaviy dizaynni birlashtirib, premium vizual kontent, <em>cinematic video</em> va zamonaviy web tajribalar yarataman.",
+      mentors_label: "Bilim ulashgan ustozlarim",
+      projects_title: "Mening Loyihalarim",
+      tab_images: "Rasmlar",
+      tab_videos: "Videolar",
+      contact_tag: "Bog'lanish",
+      contact_title: "Men bilan aloqa",
+      contact_subtitle: "Savollaringiz bo'lsa yoki hamkorlik uchun quyidagi kanallardan birini tanlang:",
+      contact_phone_type: "Telefon raqam",
+      contact_telegram_type: "Telegram",
+      contact_email_type: "Gmail pochtasi"
+    },
+    ru: {
+      nav_home: "Главная",
+      nav_about: "Обо мне",
+      nav_projects: "Проекты",
+      nav_contact: "Связаться",
+      hero_greet: "Привет, меня зовут",
+      hero_name: "Намазов<br>Мухаммад",
+      hero_role: "AI Специалист",
+      hero_statement: "Великолепный дизайн не громко заявляет о себе — он просто ощущается безупречно.",
+      hero_description: "От идеи до визуальной айдентики — создаю цифровой опыт, который вдохновляет людей и приносит результат бренду.",
+      service_1: "Стратегия Бренда",
+      service_2: "Дизайн Айдентики",
+      service_3: "Дизайн Упаковки",
+      service_4: "Креативное Направление",
+      tools_label: "Инструменты, которые я использую",
+      about_tag: "Обо мне",
+      about_title: "Превращаю идеи<br>в визуальный опыт<br>с помощью AI",
+      about_exp1: "⚡ 1 год в AI Video & Image Gen",
+      about_exp2: "🎨 6 месяцев в AI Web Design",
+      about_role: "AI Creative Specialist & AI Web Designer",
+      about_desc: "Я — <strong>AI Creative Specialist</strong> и <strong>AI Web Designer</strong>. Имею 1 год опыта в генерации AI видео и изображений, а также 6 месяцев в веб-дизайне.",
+      about_subdesc: "Объединяя искусственный интеллект и современный дизайн, создаю премиальный визуальный контент, <em>синематик видео</em> и инновационные веб-проекты.",
+      mentors_label: "Мои наставники",
+      projects_title: "Мои Проекты",
+      tab_images: "Изображения",
+      tab_videos: "Видео",
+      contact_tag: "Контакты",
+      contact_title: "Связаться со мной",
+      contact_subtitle: "Если у вас есть вопросы или предложение о сотрудничестве, выберите удобный канал:",
+      contact_phone_type: "Номер телефона",
+      contact_telegram_type: "Телеграм",
+      contact_email_type: "Электронная почта"
+    },
+    en: {
+      nav_home: "Home",
+      nav_about: "About Me",
+      nav_projects: "Projects",
+      nav_contact: "Contact Me",
+      hero_greet: "Hello, My name is",
+      hero_name: "Namazov<br>Muhammad",
+      hero_role: "AI Specialist",
+      hero_statement: "Great design doesn’t demand attention — it simply feels effortless.",
+      hero_description: "From concept to visual identity — I craft digital experiences that connect people, leave a lasting impression, and drive brand results.",
+      service_1: "Brand Strategy",
+      service_2: "Visual Identity Design",
+      service_3: "Packaging Design",
+      service_4: "Creative Direction",
+      tools_label: "Tools I Use",
+      about_tag: "About Me",
+      about_title: "Transforming Ideas<br>into Visual Experiences<br>with AI",
+      about_exp1: "⚡ 1 Year in AI Video & Image Gen",
+      about_exp2: "🎨 6 Months in AI Web Design",
+      about_role: "AI Creative Specialist & AI Web Designer",
+      about_desc: "I am an <strong>AI Creative Specialist</strong> and <strong>AI Web Designer</strong> with 1 year of experience in AI video and image generation, and 6 months in AI-powered web design.",
+      about_subdesc: "Combining artificial intelligence with modern design, I create premium visual content, <em>cinematic video</em>, and state-of-the-art web experiences.",
+      mentors_label: "Mentors Who Shared Knowledge",
+      projects_title: "My Projects",
+      tab_images: "Images",
+      tab_videos: "Videos",
+      contact_tag: "Contact",
+      contact_title: "Get in Touch",
+      contact_subtitle: "If you have questions or collaboration opportunities, choose your preferred channel:",
+      contact_phone_type: "Phone Number",
+      contact_telegram_type: "Telegram",
+      contact_email_type: "Gmail Email"
+    }
+  };
+
+  function setupLanguageSwitcher() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('preferred_lang') || 'uz';
+
+    function setLanguage(lang) {
+      if (!TRANSLATIONS[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('preferred_lang', lang);
+
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      const dict = TRANSLATIONS[lang];
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (dict[key]) {
+          elem.innerHTML = dict[key];
+        }
+      });
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+
+    setLanguage(currentLang);
+  }
+
+  function setupProjectTabs() {
+    const tabBtns = document.querySelectorAll('.project-tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetContent = document.getElementById(`tab-${targetTab}`);
+        if (targetContent) {
+          targetContent.classList.add('active');
+          window.dispatchEvent(new Event('resize'));
+        }
+      });
+    });
+  }
+
+  function setupMediaLightboxModal() {
     const modal = document.getElementById('lightbox-modal');
     const modalImg = document.getElementById('lightbox-img');
-    const modalCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.getElementById('lightbox-close');
+    const modalVideo = document.getElementById('lightbox-video');
     const backdrop = document.getElementById('lightbox-backdrop');
+    const card = document.getElementById('lightbox-card');
 
     if (!modal) return;
 
-    window.openImageLightbox = function(imgSrc, title) {
-      if (modalImg) modalImg.src = imgSrc;
-      if (modalCaption) modalCaption.textContent = title || '';
+    window.openMediaLightbox = function(type, src, title) {
+      if (type === 'video') {
+        if (modalImg) {
+          modalImg.classList.remove('active');
+          modalImg.src = '';
+        }
+        if (modalVideo) {
+          modalVideo.classList.add('active');
+          if (modalVideo.src !== src && !modalVideo.src.endsWith(src)) {
+            modalVideo.src = src;
+            modalVideo.load();
+          }
+          modalVideo.currentTime = 0;
+          modalVideo.play().catch(() => {});
+        }
+      } else {
+        if (modalVideo) {
+          modalVideo.classList.remove('active');
+          modalVideo.pause();
+          modalVideo.src = '';
+        }
+        if (modalImg) {
+          modalImg.classList.add('active');
+          modalImg.src = src;
+        }
+      }
+
       modal.classList.add('open');
     };
 
     function closeModal() {
       modal.classList.remove('open');
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.src = '';
+      }
     }
 
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (backdrop) backdrop.addEventListener('click', closeModal);
+    if (card) card.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target === backdrop || e.target === card || e.target === modalImg) {
+          closeModal();
+        }
+      });
+    }
+
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('open')) {
         closeModal();
@@ -305,12 +496,13 @@
     });
   }
 
-  function setupFanCarousel() {
-    const wrapper = document.getElementById('fan-cards-wrapper');
-    const cards = document.querySelectorAll('.fan-card-item');
-    const prevBtn = document.getElementById('fan-prev-btn');
-    const nextBtn = document.getElementById('fan-next-btn');
-    const dotsContainer = document.getElementById('fan-dots');
+  function initFanCarousel(wrapperId, prevBtnId, nextBtnId, dotsId) {
+    const wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
+    const cards = wrapper.querySelectorAll('.fan-card-item');
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    const dotsContainer = document.getElementById(dotsId);
 
     if (!cards.length) return;
 
@@ -341,10 +533,12 @@
     ];
 
     function updateFanLayout(dragOffset = 0) {
-      const isMobile = window.innerWidth < 640;
-      const xMult = isMobile ? 0.45 : 1.0;
+      const isMobileSmall = window.innerWidth < 480;
+      const isMobile = window.innerWidth < 768;
+      const xMult = isMobileSmall ? 0.35 : (isMobile ? 0.48 : 1.0);
 
       cards.forEach((card, index) => {
+        const vid = card.querySelector('video');
         let diff = index - centerIndex;
         if (diff > total / 2) diff -= total;
         if (diff < -total / 2) diff += total;
@@ -356,10 +550,19 @@
           card.style.opacity = '1';
           card.style.transform = `translate3d(${pos.x * xMult + dragOffset}px, ${pos.y}px, 0) rotate(${pos.rot + rotOffset}deg) scale(${pos.scale})`;
           card.style.zIndex = pos.zIndex;
+
+          if (vid) {
+            if (index === centerIndex) {
+              vid.play().catch(() => {});
+            } else {
+              vid.pause();
+            }
+          }
         } else {
           card.style.opacity = '0';
           card.style.transform = `translate3d(${dragOffset}px, 100px, 0) scale(0.5)`;
           card.style.zIndex = '0';
+          if (vid) vid.pause();
         }
       });
 
@@ -371,7 +574,6 @@
       }
     }
 
-    // Mouse Drag / Touch Swipe Control
     let startX = 0;
     let currentX = 0;
     let isDragging = false;
@@ -387,35 +589,54 @@
       if (!isDragging) return;
       currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
       const deltaX = currentX - startX;
-      if (Math.abs(deltaX) > 8) hasDragged = true;
-      updateFanLayout(deltaX * 0.8);
+      if (Math.abs(deltaX) > 6) hasDragged = true;
+
+      // Real-time card switching as cursor moves left/right!
+      const stepDistance = 45; // distance moved to trigger card change
+      if (deltaX < -stepDistance) {
+        centerIndex = (centerIndex + 1) % total;
+        startX = currentX;
+        updateFanLayout(0);
+      } else if (deltaX > stepDistance) {
+        centerIndex = (centerIndex - 1 + total) % total;
+        startX = currentX;
+        updateFanLayout(0);
+      } else {
+        updateFanLayout(deltaX * 0.6);
+      }
     }
 
     function onDragEnd(e) {
       if (!isDragging) return;
       isDragging = false;
-      const deltaX = currentX - startX;
-      if (hasDragged && Math.abs(deltaX) > 40) {
-        if (deltaX < 0) {
-          centerIndex = (centerIndex + 1) % total;
-        } else {
-          centerIndex = (centerIndex - 1 + total) % total;
-        }
-      }
       startX = 0;
       currentX = 0;
       updateFanLayout(0);
     }
 
-    if (wrapper) {
-      wrapper.addEventListener('mousedown', onDragStart);
-      window.addEventListener('mousemove', onDragMove);
-      window.addEventListener('mouseup', onDragEnd);
+    wrapper.addEventListener('mousedown', onDragStart);
+    window.addEventListener('mousemove', onDragMove);
+    window.addEventListener('mouseup', onDragEnd);
 
-      wrapper.addEventListener('touchstart', onDragStart, { passive: true });
-      window.addEventListener('touchmove', onDragMove, { passive: true });
-      window.addEventListener('touchend', onDragEnd);
-    }
+    wrapper.addEventListener('touchstart', onDragStart, { passive: true });
+    window.addEventListener('touchmove', onDragMove, { passive: true });
+    window.addEventListener('touchend', onDragEnd);
+
+    // Mouse wheel scroll listener
+    let wheelTimeout;
+    wrapper.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > 10 || Math.abs(e.deltaY) > 10) {
+        if (!wheelTimeout) {
+          wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 150);
+          if (e.deltaX > 0 || e.deltaY > 0) {
+            centerIndex = (centerIndex + 1) % total;
+          } else {
+            centerIndex = (centerIndex - 1 + total) % total;
+          }
+          updateFanLayout(0);
+        }
+      }
+    }, { passive: true });
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
@@ -432,24 +653,50 @@
     }
 
     cards.forEach((card, index) => {
-      card.addEventListener('click', (e) => {
+      card.addEventListener('click', () => {
         if (hasDragged) return;
-        const img = card.getAttribute('data-img');
+        const type = card.getAttribute('data-type') || 'image';
+        const src = card.getAttribute('data-src');
         const title = card.getAttribute('data-title');
 
-        if (centerIndex === index) {
-          if (window.openImageLightbox && img) {
-            window.openImageLightbox(img, title);
-          }
-        } else {
-          centerIndex = index;
-          updateFanLayout(0);
+        centerIndex = index;
+        updateFanLayout(0);
+
+        if (window.openMediaLightbox && src) {
+          window.openMediaLightbox(type, src, title);
         }
       });
     });
 
     updateFanLayout(0);
     window.addEventListener('resize', () => updateFanLayout(0));
+  }
+
+  function setupMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (!menuBtn || !drawer) return;
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      drawer.classList.toggle('open');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        mobileLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!drawer.contains(e.target) && !menuBtn.contains(e.target)) {
+        drawer.classList.remove('open');
+      }
+    });
   }
 
   function initApp() {
@@ -479,23 +726,16 @@
     currentFrame = targetFrame;
     renderFrame(Math.round(currentFrame));
 
-    // Setup Nav Smooth Scroll, 3D Hover, Contact Modal, Lightbox & Fan Carousel
+    // Setup Nav Smooth Scroll, Mobile Menu, 3D Hover, Contact Modal, Tabs, Lightbox & Fan Carousels
     setupNavClickScroll();
+    setupMobileMenu();
     setup3DHoverEffects();
     setupContactModal();
-    setupLightboxModal();
-    setupFanCarousel();
-
-    // Global click listener for mentor items
-    document.addEventListener('click', (e) => {
-      const mentorItem = e.target.closest('.mentor-item');
-      if (mentorItem) {
-        const href = mentorItem.getAttribute('href');
-        if (href) {
-          window.open(href, '_blank', 'noopener,noreferrer');
-        }
-      }
-    });
+    setupProjectTabs();
+    setupMediaLightboxModal();
+    setupLanguageSwitcher();
+    initFanCarousel('fan-wrapper-images', 'fan-prev-images', 'fan-next-images', 'fan-dots-images');
+    initFanCarousel('fan-wrapper-videos', 'fan-prev-videos', 'fan-next-videos', 'fan-dots-videos');
 
     // Event listeners
     window.addEventListener('resize', resizeCanvas);

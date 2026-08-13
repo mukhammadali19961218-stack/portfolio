@@ -31,13 +31,38 @@
         <span>novor.ai</span>
       </a>
       <nav class="nav-links">
-        <a href="#sec-1" class="active">Bosh sahifa</a>
-        <a href="#sec-3">Men haqimda</a>
-        <a href="#sec-4">Loyihalarim</a>
+        <a href="#sec-1" class="active" data-i18n="nav_home">Bosh sahifa</a>
+        <a href="#sec-3" data-i18n="nav_about">Men haqimda</a>
+        <a href="#sec-4" data-i18n="nav_projects">Loyihalarim</a>
       </nav>
-      <a href="#sec-3" class="btn-primary">
-        Bog'lanish <span class="arrow">→</span>
-      </a>
+      <div class="nav-actions">
+        <!-- Language Switcher Buttons -->
+        <div class="lang-switcher" id="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="#sec-3" class="btn-primary">
+          <span data-i18n="nav_contact">Bog'lanish</span> <span class="arrow">→</span>
+        </a>
+        <!-- Mobile Menu Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menyu">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <div class="mobile-nav-links">
+        <a href="#sec-1" class="mobile-nav-link active" data-i18n="nav_home">Bosh sahifa</a>
+        <a href="#sec-3" class="mobile-nav-link" data-i18n="nav_about">Men haqimda</a>
+        <a href="#sec-4" class="mobile-nav-link" data-i18n="nav_projects">Loyihalarim</a>
+      </div>
     </div>
   </header>
 
@@ -51,13 +76,13 @@
     <section class="section-overlay section-hero" id="sec-1">
       <div class="hero-grid">
         <div class="hero-left">
-          <p class="subtitle">Salom, Mening ismim</p>
-          <h1 class="main-title">Namazov<br>Muhammad</h1>
-          <p class="subtitle subtitle-bottom">AI mutaxassisi</p>
+          <p class="subtitle" data-i18n="hero_greet">Salom, Mening ismim</p>
+          <h1 class="main-title" data-i18n="hero_name">Namazov<br>Muhammad</h1>
+          <p class="subtitle subtitle-bottom" data-i18n="hero_role">AI mutaxassisi</p>
         </div>
         <div class="hero-right">
-          <h2 class="hero-statement">Ajoyib dizayn o‘zini namoyon qilmaydi — u shunchaki mukammal his etiladi.</h2>
-          <p class="hero-description">G‘oyadan vizual identifikatsiyagacha — insonlar bilan bog‘lanadigan, taassurot qoldiradigan va brendni natijaga aylantiradigan raqamli tajribalar yarataman</p>
+          <h2 class="hero-statement" data-i18n="hero_statement">Ajoyib dizayn o‘zini namoyon qilmaydi — u shunchaki mukammal his etiladi.</h2>
+          <p class="hero-description" data-i18n="hero_description">G‘oyadan vizual identifikatsiyagacha — insonlar bilan bog‘lanadigan, taassurot qoldiradigan va brendni natijaga aylantiradigan raqamli tajribalar yarataman</p>
         </div>
       </div>
 
@@ -66,25 +91,25 @@
         <div class="services-row">
           <div class="service-item">
             <span class="num">#01</span>
-            <span class="label">Brend Strategiyasi</span>
+            <span class="label" data-i18n="service_1">Brend Strategiyasi</span>
           </div>
           <div class="service-item">
             <span class="num">#02</span>
-            <span class="label">Brend Identifikasiya Dizayni</span>
+            <span class="label" data-i18n="service_2">Brend Identifikasiya Dizayni</span>
           </div>
           <div class="service-item">
             <span class="num">#03</span>
-            <span class="label">Qadoqlash Dizayni</span>
+            <span class="label" data-i18n="service_3">Qadoqlash Dizayni</span>
           </div>
           <div class="service-item">
             <span class="num">#04</span>
-            <span class="label">Kreativ Yo‘nalish</span>
+            <span class="label" data-i18n="service_4">Kreativ Yo‘nalish</span>
           </div>
         </div>
 
         <!-- Brands Bar (Underneath Services Row) -->
         <div class="brands-bar">
-          <div class="brands-label">Men ishlatadigan vositalar</div>
+          <div class="brands-label" data-i18n="tools_label">Men ishlatadigan vositalar</div>
           <div class="brand-items">
             <div class="brand-logo"><img src="chatgpt.png" alt="ChatGPT" class="tool-icon chatgpt-icon"> ChatGPT</div>
             <div class="brand-logo"><img src="claude.png" alt="Claude" class="tool-icon"> Claude</div>
@@ -100,22 +125,22 @@
       <div class="about-card-container">
         <div class="about-grid">
           <div class="about-left">
-            <span class="tag-label">Men haqimda</span>
-            <h2 class="about-title">G‘oyalarni AI orqali<br>vizual tajribaga<br>aylantiraman</h2>
+            <span class="tag-label" data-i18n="about_tag">Men haqimda</span>
+            <h2 class="about-title" data-i18n="about_title">G‘oyalarni AI orqali<br>vizual tajribaga<br>aylantiraman</h2>
             <div class="about-badges">
-              <span class="experience-badge">⚡ 1 yillik AI Video & Image Gen</span>
-              <span class="experience-badge">🎨 6 oylik AI Web Design</span>
+              <span class="experience-badge" data-i18n="about_exp1">⚡ 1 yillik AI Video & Image Gen</span>
+              <span class="experience-badge" data-i18n="about_exp2">🎨 6 oylik AI Web Design</span>
             </div>
           </div>
           <div class="about-right">
             <div class="about-role-highlight">
               <span class="role-icon">✦</span>
-              <span>AI Creative Specialist & AI Web Designer</span>
+              <span data-i18n="about_role">AI Creative Specialist & AI Web Designer</span>
             </div>
-            <p class="about-description">
+            <p class="about-description" data-i18n="about_desc">
               Men — <strong>AI Creative Specialist</strong> va <strong>AI Web Designer</strong>man. 1 yillik AI video va image generation, hamda 6 oylik AI-powered web design tajribasiga egaman.
             </p>
-            <p class="about-sub-description">
+            <p class="about-sub-description" data-i18n="about_subdesc">
               Sun’iy intellekt orqali kreativlik va zamonaviy dizaynni birlashtirib, premium vizual kontent, <em>cinematic video</em> va zamonaviy web tajribalar yarataman.
             </p>
           </div>
@@ -124,7 +149,7 @@
 
       <!-- Mentors Bar (Underneath About Card) -->
       <div class="mentors-bar">
-        <div class="mentors-label">Bilim ulashgan ustozlarim</div>
+        <div class="mentors-label" data-i18n="mentors_label">Bilim ulashgan ustozlarim</div>
         <div class="mentor-items">
           <a href="https://www.instagram.com/mahmudjon_inomjonov?igsh=MXhndDJyZHc5aW9hdw==" target="_blank" rel="noopener noreferrer" class="mentor-item">
             <img src="mahmudjon.png" alt="mahmudjon_inomjonov" class="mentor-avatar">
@@ -142,61 +167,176 @@
       </div>
     </section>
 
-    <!-- Section 4: Showcase Fan Carousel -->
+    <!-- Section 4: Showcase Fan Carousel (Images & Videos) -->
     <section class="section-overlay section-projects" id="sec-4">
       <div class="projects-header">
-        <h2 class="projects-title">Mening Loyihalarim</h2>
+        <h2 class="projects-title" data-i18n="projects_title">Mening Loyihalarim</h2>
+        
+        <!-- Tab Switcher -->
+        <div class="project-tabs" id="project-tabs">
+          <button class="project-tab-btn active" data-tab="images">
+            <span class="tab-icon">🖼️</span>
+            <span data-i18n="tab_images">Rasmlar</span>
+          </button>
+          <button class="project-tab-btn" data-tab="videos">
+            <span class="tab-icon">🎬</span>
+            <span data-i18n="tab_videos">Videolar</span>
+          </button>
+        </div>
       </div>
 
-      <div class="fan-carousel-container" id="fan-carousel-container">
-        <div class="fan-cards-wrapper" id="fan-cards-wrapper">
-          <div class="fan-card-item" data-index="0" data-img="proj1.png" data-title="AI Assistant UI Interfeysi">
-            <img src="proj1.png" alt="AI Assistant UI Interfeysi" class="fan-card-img">
+      <!-- Tab Content 1: Images Fan Carousel -->
+      <div class="tab-content active" id="tab-images">
+        <div class="fan-carousel-container" id="fan-carousel-images">
+          <div class="fan-cards-wrapper" id="fan-wrapper-images">
+            <div class="fan-card-item" data-index="0" data-type="image" data-src="rasmlar/pic1.png" data-title="Kreativ AI Vizual Loyiha 01">
+              <img src="rasmlar/pic1.png" alt="Kreativ AI Vizual Loyiha 01" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="1" data-type="image" data-src="rasmlar/pic2.png" data-title="Exponenta Brend Dizayn">
+              <img src="rasmlar/pic2.png" alt="Exponenta Brend Dizayn" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="2" data-type="image" data-src="rasmlar/pic3.jpeg" data-title="Flaves Visual Concept">
+              <img src="rasmlar/pic3.jpeg" alt="Flaves Visual Concept" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="3" data-type="image" data-src="rasmlar/pic4.jpeg" data-title="MUZY Creative Concept">
+              <img src="rasmlar/pic4.jpeg" alt="MUZY Creative Concept" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="4" data-type="image" data-src="rasmlar/pic5.jpeg" data-title="MUZY AI Art Edition">
+              <img src="rasmlar/pic5.jpeg" alt="MUZY AI Art Edition" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="5" data-type="image" data-src="rasmlar/pic6.jpeg" data-title="MUZY 3D Visual Art">
+              <img src="rasmlar/pic6.jpeg" alt="MUZY 3D Visual Art" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="6" data-type="image" data-src="rasmlar/pic7.jpeg" data-title="Custom AI Concept Design">
+              <img src="rasmlar/pic7.jpeg" alt="Custom AI Concept Design" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="7" data-type="image" data-src="rasmlar/pic8.png" data-title="Xurshida Portrait Design">
+              <img src="rasmlar/pic8.png" alt="Xurshida Portrait Design" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="8" data-type="image" data-src="rasmlar/pic9.JPG" data-title="Zarina Art Showcase">
+              <img src="rasmlar/pic9.JPG" alt="Zarina Art Showcase" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="9" data-type="image" data-src="rasmlar/pic10.jpeg" data-title="Elite FMCG Beverage Concept">
+              <img src="rasmlar/pic10.jpeg" alt="Elite FMCG Beverage Concept" class="fan-card-img">
+            </div>
+
+            <div class="fan-card-item" data-index="10" data-type="image" data-src="rasmlar/pic11.png" data-title="Tayyor Proyekt Dizayn">
+              <img src="rasmlar/pic11.png" alt="Tayyor Proyekt Dizayn" class="fan-card-img">
+            </div>
           </div>
 
-          <div class="fan-card-item" data-index="1" data-img="proj2.png" data-title="Brend Vizual Identifikasiyasi">
-            <img src="proj2.png" alt="Brend Vizual Identifikasiyasi" class="fan-card-img">
-          </div>
-
-          <div class="fan-card-item" data-index="2" data-img="proj3.png" data-title="E-Commerce & Mobil Ilovalar">
-            <img src="proj3.png" alt="E-Commerce & Mobil Ilovalar" class="fan-card-img">
-          </div>
-
-          <div class="fan-card-item" data-index="3" data-img="proj4.png" data-title="Cinematic AI Video Production">
-            <img src="proj4.png" alt="Cinematic AI Video Production" class="fan-card-img">
-          </div>
-
-          <div class="fan-card-item" data-index="4" data-img="proj5.png" data-title="3D Interaktiv Veb Tajribalar">
-            <img src="proj5.png" alt="3D Interaktiv Veb Tajribalar" class="fan-card-img">
-          </div>
-
-          <div class="fan-card-item" data-index="5" data-img="proj6.png" data-title="Generative Concept Art">
-            <img src="proj6.png" alt="Generative Concept Art" class="fan-card-img">
+          <!-- Fan Pagination Controls for Images -->
+          <div class="fan-controls">
+            <button class="fan-nav-btn prev-btn" id="fan-prev-images" aria-label="Oldingisi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="fan-dots" id="fan-dots-images"></div>
+            <button class="fan-nav-btn next-btn" id="fan-next-images" aria-label="Keyingisi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
         </div>
+      </div>
 
-        <!-- Fan Pagination Controls -->
-        <div class="fan-controls">
-          <button class="fan-nav-btn prev-btn" id="fan-prev-btn" aria-label="Oldingisi">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <div class="fan-dots" id="fan-dots"></div>
-          <button class="fan-nav-btn next-btn" id="fan-next-btn" aria-label="Keyingisi">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+      <!-- Tab Content 2: Videos Fan Carousel -->
+      <div class="tab-content" id="tab-videos">
+        <div class="fan-carousel-container" id="fan-carousel-videos">
+          <div class="fan-cards-wrapper" id="fan-wrapper-videos">
+            <div class="fan-card-item video-card" data-index="0" data-type="video" data-src="videolar/vid1.mp4" data-title="Gucci Sumka AI Video">
+              <video src="videolar/vid1.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="1" data-type="video" data-src="videolar/vid2.mp4" data-title="Cinematic Motion Video 02">
+              <video src="videolar/vid2.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="2" data-type="video" data-src="videolar/vid3.mp4" data-title="AI Commercial Motion 03">
+              <video src="videolar/vid3.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="3" data-type="video" data-src="videolar/vid4.mp4" data-title="AI Creative Reel 04">
+              <video src="videolar/vid4.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="4" data-type="video" data-src="videolar/vid5.mp4" data-title="Luis Vuiton Sumka Video">
+              <video src="videolar/vid5.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="5" data-type="video" data-src="videolar/vid6.mp4" data-title="Reklama Kastyum Visual Reel">
+              <video src="videolar/vid6.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="6" data-type="video" data-src="videolar/vid7.mp4" data-title="Shahlo Dizayn Commercial">
+              <video src="videolar/vid7.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="7" data-type="video" data-src="videolar/vid8.mp4" data-title="Uzbekistan Sweets AI Commercial">
+              <video src="videolar/vid8.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <div class="fan-card-item video-card" data-index="8" data-type="video" data-src="videolar/vid9.mp4" data-title="Xurshida AI Motion Reel">
+              <video src="videolar/vid9.mp4" preload="metadata" muted loop playsinline class="fan-card-video"></video>
+              <div class="play-overlay-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fan Pagination Controls for Videos -->
+          <div class="fan-controls">
+            <button class="fan-nav-btn prev-btn" id="fan-prev-videos" aria-label="Oldingisi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="fan-dots" id="fan-dots-videos"></div>
+            <button class="fan-nav-btn next-btn" id="fan-next-videos" aria-label="Keyingisi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
   </div>
 
-  <!-- Image Lightbox Modal -->
+  <!-- Media Lightbox Modal (Pure Media View) -->
   <div id="lightbox-modal" class="lightbox-modal-overlay">
     <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
-    <div class="lightbox-card">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Yopish">✕</button>
+    <div class="lightbox-card" id="lightbox-card">
       <img src="" alt="" id="lightbox-img" class="lightbox-image">
-      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <video src="" controls autoplay loop id="lightbox-video" class="lightbox-video"></video>
     </div>
   </div>
 
@@ -204,16 +344,16 @@
   <div id="contact-modal" class="contact-modal-overlay">
     <div class="contact-modal-card">
       <button id="modal-close" class="modal-close-btn" aria-label="Close">&times;</button>
-      <span class="tag-label">Bog'lanish</span>
-      <h3 class="modal-title">Men bilan aloqa</h3>
-      <p class="modal-subtitle">Savollaringiz bo'lsa yoki hamkorlik uchun quyidagi kanallardan birini tanlang:</p>
+      <span class="tag-label" data-i18n="contact_tag">Bog'lanish</span>
+      <h3 class="modal-title" data-i18n="contact_title">Men bilan aloqa</h3>
+      <p class="modal-subtitle" data-i18n="contact_subtitle">Savollaringiz bo'lsa yoki hamkorlik uchun quyidagi kanallardan birini tanlang:</p>
 
       <div class="contact-links-grid">
         <!-- Telefon link -->
         <a href="tel:+998913378553" class="contact-card-item">
           <div class="contact-icon">📞</div>
           <div class="contact-info">
-            <span class="contact-type">Telefon raqam</span>
+            <span class="contact-type" data-i18n="contact_phone_type">Telefon raqam</span>
             <span class="contact-value">+998 91 337 85 53</span>
           </div>
           <span class="contact-action-arrow">→</span>
@@ -223,7 +363,7 @@
         <a href="https://t.me/alinamazov4959" target="_blank" rel="noopener noreferrer" class="contact-card-item">
           <div class="contact-icon">✈️</div>
           <div class="contact-info">
-            <span class="contact-type">Telegram</span>
+            <span class="contact-type" data-i18n="contact_telegram_type">Telegram</span>
             <span class="contact-value">@alinamazov4959</span>
           </div>
           <span class="contact-action-arrow">→</span>
@@ -233,7 +373,7 @@
         <a href="mailto:mukhammadali19961218@gmail.com" class="contact-card-item">
           <div class="contact-icon">✉️</div>
           <div class="contact-info">
-            <span class="contact-type">Gmail pochtasi</span>
+            <span class="contact-type" data-i18n="contact_email_type">Gmail pochtasi</span>
             <span class="contact-value">mukhammadali19961218@gmail.com</span>
           </div>
           <span class="contact-action-arrow">→</span>
