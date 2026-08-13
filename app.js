@@ -533,9 +533,11 @@
     ];
 
     function updateFanLayout(dragOffset = 0) {
+      const isTinyMobile = window.innerWidth < 380;
       const isMobileSmall = window.innerWidth < 480;
       const isMobile = window.innerWidth < 768;
-      const xMult = isMobileSmall ? 0.35 : (isMobile ? 0.48 : 1.0);
+      const isTablet = window.innerWidth < 1024;
+      const xMult = isTinyMobile ? 0.28 : (isMobileSmall ? 0.38 : (isMobile ? 0.55 : (isTablet ? 0.8 : 1.0)));
 
       cards.forEach((card, index) => {
         const vid = card.querySelector('video');

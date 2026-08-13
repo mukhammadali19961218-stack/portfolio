@@ -1161,7 +1161,7 @@ body {
   .hero-grid {
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 28px;
   }
   .hero-right {
     align-items: flex-start;
@@ -1176,6 +1176,9 @@ body {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  .about-card-container {
+    padding: 40px 36px;
+  }
   .services-row {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1184,44 +1187,73 @@ body {
     align-items: flex-start;
     gap: 16px;
   }
+  .mentors-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 12px 18px;
+    padding: 10px 16px;
+    height: 70px;
   }
   .nav-container {
+    padding: 0 12px;
     justify-content: space-between;
   }
   .nav-links {
     display: none;
   }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .mobile-nav-drawer {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .section-overlay {
+    padding: 85px 20px 24px 20px;
+    overflow-y: auto;
+  }
   .main-title {
-    font-size: 2.8rem;
-    line-height: 1.12;
+    font-size: clamp(2.4rem, 7.5vw, 3.2rem);
+    line-height: 1.08;
   }
   .hero-statement {
-    font-size: 1.35rem;
+    font-size: clamp(1.2rem, 4.2vw, 1.6rem);
   }
   .hero-description {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
   .services-row {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .service-item {
-    padding: 14px 16px;
-  }
-  .mentor-items {
-    flex-direction: column;
-    width: 100%;
     gap: 10px;
   }
-  .mentor-item {
+  .service-item {
+    padding: 10px 12px;
+  }
+  .about-card-container {
+    padding: 32px 24px;
+    border-radius: 28px;
+  }
+  .mentor-items {
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
+    gap: 16px;
+  }
+  .mentor-item {
+    width: auto;
     justify-content: flex-start;
-    box-sizing: border-box;
+  }
+  .fan-cards-wrapper {
+    height: 420px;
   }
   .fan-card-item {
     width: 250px;
@@ -1244,8 +1276,9 @@ body {
     border-radius: 16px;
   }
   .contact-modal-card {
-    padding: 28px 20px;
+    padding: 32px 24px;
     border-radius: 24px;
+    max-width: calc(100vw - 32px);
   }
   .modal-title {
     font-size: 1.6rem;
@@ -1254,27 +1287,66 @@ body {
 
 @media (max-width: 480px) {
   .section-overlay {
-    padding: 85px 16px 20px 16px;
+    padding: 78px 14px 20px 14px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-actions .btn-primary {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  .nav-actions .btn-primary .arrow {
+    display: none;
+  }
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 0.72rem;
   }
   .main-title {
-    font-size: 2.3rem;
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+  }
+  .hero-statement {
+    font-size: 1.15rem;
   }
   .services-row {
     grid-template-columns: 1fr;
+    gap: 8px;
   }
   .brand-items {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
   .brand-logo {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+  .about-card-container {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  .about-title {
+    font-size: 1.65rem;
+  }
+  .experience-badge {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+  .about-role-highlight {
     padding: 8px 14px;
     font-size: 0.85rem;
   }
-  .about-title {
-    font-size: 1.8rem;
+  .about-description {
+    font-size: 0.95rem;
+  }
+  .about-sub-description {
+    font-size: 0.88rem;
   }
   .projects-title {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
+  }
+  .fan-cards-wrapper {
+    height: 380px;
   }
   .fan-card-item {
     width: 220px;
@@ -1286,8 +1358,54 @@ body {
     border-radius: 18px;
   }
   .project-tab-btn {
-    padding: 10px 18px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .contact-modal-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  .contact-card-item {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+  .contact-value {
+    font-size: 0.88rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 375px) {
+  .section-overlay {
+    padding: 72px 10px 16px 10px;
+  }
+  .nav-container {
+    padding: 0 10px;
+  }
+  .logo {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+  .main-title {
+    font-size: 1.85rem;
+  }
+  .hero-left .subtitle {
+    font-size: 0.95rem;
+  }
+  .hero-statement {
+    font-size: 1.05rem;
+  }
+  .fan-cards-wrapper {
+    height: 340px;
+  }
+  .fan-card-item {
+    width: 190px;
+    height: 270px;
   }
 }
 
